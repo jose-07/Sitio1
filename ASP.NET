@@ -1,0 +1,32 @@
+ Sistema de importaciones. Datos
+Importa  System.Data.SqlClient
+ Sistema de importaciones.IO
+Importa  Microsoft.VisualBasic
+
+ Clase  pública Cl_ManejoDataSetDataTableGridview
+     Función  pública listar ()  como  Data.DataSet
+        Dim  cadena,  query_sql  como  cadena
+        Dim  conexion  As  SqlConnection
+        Dim  adaptador  As  SqlDataAdapter
+        Dim  datos  como  DataSet
+
+        cadena  =  ConfigurationManager.ConnectionStrings ( "baseConnectionString" ) .ToString
+
+        conexion  =  Nueva  conexión SQL (cadena)
+
+        conexion.Open ()
+
+        query_sql  =  "seleccione top (10) productid, productname, supplierid, categoryid de los productos"
+
+        adaptador  =  Nuevo  SqlDataAdapter (query_sql,  conexion)
+
+        datos  =  Nuevo conjunto de  datos ()
+
+        adaptador.Fill (datos)
+
+        conexion.Close ()
+
+        Devolver  datos
+
+     Función final
+ Clase final
